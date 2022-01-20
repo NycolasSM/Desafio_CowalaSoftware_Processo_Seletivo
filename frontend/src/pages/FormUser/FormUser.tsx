@@ -32,7 +32,7 @@ const FormUser: React.FC = () => {
         {/* component width FormFields represent the percentage that it will occupy in relation to the content container */}
         <FormFields label='Nome' width={100} name="name" />
         <FormFields label='Profissão' width={47} name="job" />
-        <FormFields label='Celular' width={47} name="phone" />
+        <FormFields label='Celular'type='phoneField' width={47} name="phone" />
         <FormFields label='Meu IP' value={userIp} width={63} readonly={true} name="userIP" />
         <FormButton onClick={() => getIp()} type='button' label='ENCONTRAR IP' customization={({ backgroundColor: '#00e6de', textColor: 'black', width:'183px' })} />
         <div className='buttomsOptions'>

@@ -1,4 +1,5 @@
 import React from 'react';
+import InputWithMask from 'react-input-mask'
 
 import { FieldsFormUser } from './FormFieldsStyle'
 
@@ -18,7 +19,11 @@ const Fields: React.FC<Props> = ({ label, placeholder, width = 100, readonly = f
   return (
     <FieldsFormUser style={{ width: `${width}%` }}>
       {label}
+      {type == "phoneField" ?
+      <InputWithMask placeholder={placeholder} mask="(99) 99999-9999" type={type} readOnly={readonly} name="" value={value} /> 
+      : 
       <input placeholder={placeholder} type={type} readOnly={readonly} name="" value={value} />
+      }
     </FieldsFormUser>
   );
 };

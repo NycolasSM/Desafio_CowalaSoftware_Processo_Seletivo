@@ -24,6 +24,7 @@ export const Content = styled.button<Props>`
   font-style: normal;
   font-size: 18px;
   line-height: 21px;
+  border: none;
 
   transition: all ease 0.1s;
 
