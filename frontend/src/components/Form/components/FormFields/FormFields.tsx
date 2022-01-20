@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { FieldsFormUser } from './FieldsStyle'
+import { FieldsFormUser } from './FormFieldsStyle'
 
 interface Props {
   label: string;

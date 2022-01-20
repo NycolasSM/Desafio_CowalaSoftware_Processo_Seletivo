@@ -1,9 +1,9 @@
 import { Form } from './FormStyle';
-import Fields from './components/Fields/Fields';
+import FormFields from './components/FormFields/FormFields';
 
 //todo FormFields
 
 export {
   Form as default,
-  Fields
+  FormFields
 }

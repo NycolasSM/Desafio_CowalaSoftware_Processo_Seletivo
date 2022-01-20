@@ -1,12 +1,12 @@
 import React from "react";
 
 import { HeaderCowala } from './HeaderStyle'
-import Logo  from './components/Logo/Logo';
+import LogoHeader  from './components/LogoHeader/LogoHeader';
 
 const Header: React.FC = () => {
   return(
     <HeaderCowala>
-      <Logo />
+      <LogoHeader />
     </HeaderCowala>
   );
 };
