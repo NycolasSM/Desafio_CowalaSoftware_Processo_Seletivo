@@ -2,7 +2,6 @@ import Props from "./FormButton"
 import styled from "styled-components";
 
 interface Props {
-  label?: string,
   customization?: {
     backgroundColor?: string;
     textColor?: string;
@@ -18,7 +17,6 @@ export const Content = styled.button<Props>`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 40px;
 
   font-family: 'RobotoRegular';
   font-style: normal;

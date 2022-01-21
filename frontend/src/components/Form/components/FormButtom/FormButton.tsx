@@ -5,7 +5,7 @@ import { Content } from './FormButtomStyle'
 interface Props {
   label?: string,
   type?: string,
-  onClick?: () => void,
+  onClick?: (e?:any) => void,
   customization?: {
     backgroundColor?: string;
     textColor?: string;

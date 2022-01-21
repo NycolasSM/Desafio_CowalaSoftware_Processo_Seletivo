@@ -1,10 +1,19 @@
 import styled from "styled-components";
 
-export const Form = styled.form`
-  height: 459px;
-  width: 1103px;
+interface Props {
+  height?: string,
+  width?: string,
+  margin?: string,
+  alignitems?: string,
+  justifycontent?: string,
+}
+
+export const Form = styled.form<Props>`
+  width: ${props => props.width};
+  height: ${props => props.height};
   background-color: #EDEDED;
   margin: 1.5vw auto;
+  padding: 0px 5px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;

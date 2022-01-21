@@ -1,6 +1,6 @@
 export const convertIPV6ToIPV4 = (ip6:string) => {
-  function parseIp6(ip6str:string) {
-      const str = ip6str.toString();
+  function parseIp6(ipv6str:string) {
+      const str = ipv6str.toString();
 
       // Initialize
       const ar = new Array();
