@@ -14,16 +14,6 @@ const grupoFamilia: { souEu: boolean, responsavel: boolean, nome: string}[] = [
   {
     souEu: false,
     responsavel: true,
-    nome: 'João Silva'
-  },
-  {
-    souEu: true,
-    responsavel: false,
-    nome: 'Nycolas Santana'
-  },
-  {
-    souEu: false,
-    responsavel: true,
     nome: 'Pedro Marques'
   },
   {
@@ -37,9 +27,19 @@ const grupoFamilia: { souEu: boolean, responsavel: boolean, nome: string}[] = [
     nome: 'Lanna Rodrigues'
   },
   {
+    souEu: true,
+    responsavel: false,
+    nome: 'Nycolas Santana'
+  },
+  {
     souEu: false,
     responsavel: false,
     nome: 'Marcos Rosario'
+  },
+  {
+    souEu: false,
+    responsavel: true,
+    nome: 'João Silva'
   },
   {
     souEu: false,
@@ -91,30 +91,30 @@ const grupoTrabalho: { souEu: boolean, responsavel: boolean, nome: string}[] = [
   },
 ]
 
-interface IGrupo {
+interface IGroup {
   souEu: boolean,
   responsavel: boolean,
   nome: string
 }[]
 
-const classfificador = (grupo: IGrupo[]) => {
+const classfificador = (group: IGroup[]) => {
 
-  const usuarioResonsavel = (pessoa: any) => { return { Nome: pessoa.nome, responsavel: pessoa.responsavel } }
-  const usuarioComum = (pessoa: any) => { return pessoa.nome }
+  const usuarioResonsavel = (person: any) => { return { Nome: person.nome, responsavel: person.responsavel } }
+  const usuarioComum = (person: any) => { return person.nome }
 
-  const getEu = grupo.filter((pessoa) => pessoa.souEu === true);
-  const getResponsaveis = grupo.filter((pessoa) => pessoa.responsavel === true);
-  const getNãoResponsaveis = grupo.filter((pessoa) => pessoa.responsavel === false && pessoa.souEu === false);
+  const getMe = group.filter((person) => person.souEu === true);
+  const getAdmins = group.filter((person) => person.responsavel === true);
+  const getNotAdmins = group.filter((person) => person.responsavel === false && person.souEu === false);
 
-  const souEu = (getEu.map(usuarioComum))
-  const responsaveis = (getResponsaveis.map(usuarioResonsavel).map((el) => el.Nome).map(el => el.concat(" [Admin]")).sort())
-  const nãoResponsaveis = (getNãoResponsaveis.map(usuarioComum).sort())
+  const ItsMe = (getMe.map(usuarioComum))
+  const admins = (getAdmins.map(usuarioResonsavel).map((el) => el.Nome).map(el => el.concat(" [Admin]")).sort())
+  const notAdmins = (getNotAdmins.map(usuarioComum).sort())
 
-  const resultado = []
+  const result = []
 
-  resultado.push(souEu, responsaveis, nãoResponsaveis)
+  result.push(ItsMe, admins, notAdmins)
 
-  return resultado.reduce((resultado, nomes) => resultado.concat(nomes), [])
+  return result.reduce((result, nomes) => result.concat(nomes), [])
 }
 
 console.log(classfificador(grupoFamilia))
