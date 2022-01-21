@@ -3,11 +3,11 @@ export const convertIPV6ToIPV4 = (ip6:string) => {
       const str = ipv6str.toString();
 
       // Initialize
-      const ar = new Array();
+      const ar = [];
       for (var i = 0; i < 8; i++) ar[i] = 0;
 
       // Check for trivial IPs
-      if (str == '::') return ar;
+      if (str === '::') return ar;
       
       // Parse
       const sar = str.split(':');
@@ -17,7 +17,7 @@ export const convertIPV6ToIPV4 = (ip6:string) => {
       i = 0
       for (i = 0; i < slen; i++) {
           // This is a "::", switch to end-run mode
-          if (i && sar[i] == '') {
+          if (i && sar[i] === '') {
               j = 9 - slen + i;
               continue;
           }

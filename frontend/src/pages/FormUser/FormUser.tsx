@@ -8,9 +8,6 @@ import { Container } from './FormUserStyle';
 
 const FormUser: React.FC = () => {;
 
-
-  // TODO talvez seja interessante tratar os dados antes de enviar o formulario, talvez convertentendo o numero do telefone para uma string
-
   const [form, setForm] = useState({
     userName: "",
     userJob: "",
@@ -61,7 +58,17 @@ const FormUser: React.FC = () => {;
     const { name, value } = event.target;
 
     setForm({ ...form, [name]: value })
-    console.log(form)
+  }
+
+  const submitForm = (event:any) => {
+    event.preventDefault()
+
+    form.userPhone = phoneNumberTreatment(form.userPhone)
+    console.log(form) // para ver como ficou o formulario
+
+    alert("Formulario Enviado")
+
+    cleanAllFields()
   }
 
   return (
@@ -74,7 +81,7 @@ const FormUser: React.FC = () => {;
         <FormFields label='Meu IP' onChange={formChange} value={form.userIpv4} disable={true} width={63} readonly={true} name="userIp" />
         <FormButton onClick={() => getUserIp()} type='button' label='ENCONTRAR IP' customization={({ backgroundColor: '#00e6de', textColor: 'black', width:'183px' })} />
         <div className='buttomsOptions'>
-          <FormButton type='submit' label='SALVAR' customization={({ backgroundColor: '#0A1633', textColor: 'white', width:'139px'})}/>
+          <FormButton type='submit' label='SALVAR' onClick={(event) => submitForm(event)} customization={({ backgroundColor: '#0A1633', textColor: 'white', width:'139px'})}/>
           <FormButton type='reset' label='LIMPAR' onClick={() => cleanAllFields()} customization={({ backgroundColor: '#0A1633', textColor: 'white', width:'139px' })}/>
         </div>
       </Container>

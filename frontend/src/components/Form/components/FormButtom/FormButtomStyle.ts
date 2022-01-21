@@ -1,4 +1,3 @@
-import Props from "./FormButton"
 import styled from "styled-components";
 
 interface Props {

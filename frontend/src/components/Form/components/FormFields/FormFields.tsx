@@ -21,7 +21,7 @@ const Fields: React.FC<Props> = ({ label, onChange, disable = false, placeholder
   return (
     <FieldsFormUser style={{ width: `${width}%` }}>
       {label}
-      {type == "phoneField" ?
+      {type === "phoneField" ?
       <InputWithMask disabled={disable} onChange={onChange} placeholder={placeholder} mask="(99) 99999-9999" type={type} readOnly={readonly} name={name} value={value} /> 
       : 
       <input disabled={disable} onChange={onChange} placeholder={placeholder} type={type} readOnly={readonly} name={name} value={value} />
