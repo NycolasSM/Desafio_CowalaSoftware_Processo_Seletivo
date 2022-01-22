@@ -6,7 +6,7 @@ import CowalaSoftwareBannerSVG from '../../assets/logo/CowalaSoftwareBanner.svg'
 export const Content = styled.div<Props>`
   height: ${props => props.customization?.size};
 `
-interface Props {
+type Props = {
   customization?: {
     size?: string;
   }

@@ -5,6 +5,8 @@
 const dataExemplo1 = "2021-11-17T20:40:09.503Z"; // 10d return false
 const dataExemplo2 = "2021-12-10T00:00:00.000Z"; // 180d return true
 
+const danone = "2021-12-05T00:00:00.000Z"
+
 
 // OBS: como consegui saber o valor que equivale a um dia em milisegundos
 // atribui duas datas com exatamente um dia de diferença, converti para milesegundos e tirei a diferença

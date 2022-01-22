@@ -3,7 +3,7 @@ import InputWithMask from 'react-input-mask'
 
 import { FieldsFormUser } from './FormFieldsStyle'
 
-interface Props {
+type Props = {
   label: string;
   name: string;
   placeholder?: string;

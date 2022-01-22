@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Content } from './FormButtomStyle'
 
-interface Props {
+type Props = {
   label?: string,
   type?: string,
   onClick?: (e?:any) => void,

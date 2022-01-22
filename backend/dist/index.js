@@ -8,9 +8,7 @@ const cors_1 = __importDefault(require("cors"));
 const routes_1 = __importDefault(require("./routes"));
 const app = (0, express_1.default)();
 app.use((0, cors_1.default)());
-function getUserName() {
-    return "testUser";
-}
 app.use(routes_1.default);
-const userName = getUserName();
-app.listen(3001);
+app.listen(3001, () => {
+    console.log('Backend Pronto...');
+});
