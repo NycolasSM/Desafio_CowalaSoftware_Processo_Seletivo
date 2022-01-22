@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import api from '../../services/api';
 
-import { convertIPV6ToIPV4 } from './utils/convertIP'
+import { convertIPV6ToIPV4 } from '../../utils/convertIP'
 
 import Form, { FormFields, FormButton } from '../../components/Form';
 import { Container } from './FormUserStyle';
@@ -24,6 +24,15 @@ const FormUser: React.FC = () => {;
       userIpv4: "",
       userIpv6: "",
     })
+  }
+
+  const cleanLocalStorage = () => {
+    localStorage.removeItem("userForm")
+  }
+
+  const cleanFieldsAndLocalStorage = () => {
+    cleanAllFields()
+    cleanLocalStorage()
   }
 
   const getUserIp = () => {
@@ -66,6 +75,7 @@ const FormUser: React.FC = () => {;
     form.userPhone = phoneNumberTreatment(form.userPhone)
     console.log(form) // para ver como ficou o formulario
 
+    localStorage.setItem("userForm",JSON.stringify(form))
     alert("Formulario Enviado")
 
     cleanAllFields()
@@ -82,7 +92,7 @@ const FormUser: React.FC = () => {;
         <FormButton onClick={() => getUserIp()} type='button' label='ENCONTRAR IP' customization={({ backgroundColor: '#00e6de', textColor: 'black', width:'183px' })} />
         <div className='buttomsOptions'>
           <FormButton type='submit' label='SALVAR' onClick={(event) => submitForm(event)} customization={({ backgroundColor: '#0A1633', textColor: 'white', width:'139px'})}/>
-          <FormButton type='reset' label='LIMPAR' onClick={() => cleanAllFields()} customization={({ backgroundColor: '#0A1633', textColor: 'white', width:'139px' })}/>
+          <FormButton type='reset' label='LIMPAR' onClick={() => cleanFieldsAndLocalStorage()} customization={({ backgroundColor: '#0A1633', textColor: 'white', width:'139px' })}/>
         </div>
       </Container>
     </Form>
