@@ -5,20 +5,19 @@
 // ("2021-11-17T20:40:09.503Z", "10d") false
 // ("2021-12-10T00:00:00.000Z", "180d") true
 
-const todayDate = new Date
 
-
+// const productData = "2021-12-10T00:00:00.000Z"
 
 const data = "2021-11-17T20:40:09.503Z";
 const data2 = "2021-12-10T00:00:00.000Z"
 const data3 = "2021-12-11T00:00:00.000Z"
 
-
 const dataExtendida = "1637181609503"
-
-const diferença = "86400000"
+const dataProduto = "1637181121251"
 
 const validade = (dateToAnalyze: Date, diasParaValidade: number) => {
+
+  const todayDate = new Date()
 
   const millisecondsOfTheDay = 86400000
 
@@ -27,9 +26,7 @@ const validade = (dateToAnalyze: Date, diasParaValidade: number) => {
   console.log(dateToAnalyzeInMilliseconds)
 }
 
-validade(todayDate, 18)
-
-
+// validade(productData, 18)
 
 const newData = new Date(1637181609503)
 
@@ -39,4 +36,4 @@ console.log(Date.parse(data3) - Date.parse(data2))
 
 console.log(newData)
 
-console.log(todayDate)
+// console.log(todayDate)

@@ -91,30 +91,29 @@ const grupoTrabalho: { souEu: boolean, responsavel: boolean, nome: string}[] = [
   },
 ]
 
-interface IGroup {
+type Person = {
   souEu: boolean,
   responsavel: boolean,
   nome: string
-}[]
+}
 
-const classfificador = (group: IGroup[]) => {
+type Group = Array<Person>;
 
-  const usuarioResonsavel = (person: any) => { return { Nome: person.nome, responsavel: person.responsavel } }
-  const usuarioComum = (person: any) => { return person.nome }
+const classfificador = (group: Group) => {
 
-  const getMe = group.filter((person) => person.souEu === true);
-  const getAdmins = group.filter((person) => person.responsavel === true);
-  const getNotAdmins = group.filter((person) => person.responsavel === false && person.souEu === false);
+  const getMe = (person: Person) => { return  `${getUserName(person)} [Me]` }
+  const getResponsibleUser = (person: Person) => { return  `${getUserName(person)} [Admin]` }
+  const getUserName = (person: Person) => { return person.nome }
 
-  const ItsMe = (getMe.map(usuarioComum))
-  const admins = (getAdmins.map(usuarioResonsavel).map((el) => el.Nome).map(el => el.concat(" [Admin]")).sort())
-  const notAdmins = (getNotAdmins.map(usuarioComum).sort())
+  const isItMe = (person: Person) => person.souEu;
+  const isAdmin = (person: Person) => person.responsavel;
+  const isOrdinaryUsers = (person: Person) => !isItMe(person) && !isAdmin(person);
 
-  const result = []
-
-  result.push(ItsMe, admins, notAdmins)
-
-  return result.reduce((result, nomes) => result.concat(nomes), [])
+  const itsMe = group.filter(isItMe).map(getMe)
+  const admins = group.filter(isAdmin).map(getResponsibleUser).sort()
+  const ordinaryUsers = group.filter(isOrdinaryUsers).map(getUserName).sort()
+  
+  return [...itsMe, ...admins, ...ordinaryUsers]
 }
 
 console.log(classfificador(grupoFamilia))

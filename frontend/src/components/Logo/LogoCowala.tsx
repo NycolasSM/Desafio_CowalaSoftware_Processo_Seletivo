@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import LogoCowalaSVG from './SVG/LogoCowala.svg'
+import LogoCowalaSVG from '../../assets/logo/LogoCowala.svg'
 
 export const Content = styled.div<Props>`
   height: ${props => props.customization?.size};

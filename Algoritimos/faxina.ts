@@ -14,7 +14,7 @@ const objeto2 = {
   "car": null,
   "tar": null,
   "gar": 42,
-  "var": "test",
+  "var": undefined,
 }
 
 const faxina = (obj: object) => {
@@ -22,7 +22,7 @@ const faxina = (obj: object) => {
   let result = {}
 
   for (const [key, value] of Object.entries(obj)) {
-    if (value !== null) {
+    if (value) {
       result = { ...result, [key]: value }
     }
   }
