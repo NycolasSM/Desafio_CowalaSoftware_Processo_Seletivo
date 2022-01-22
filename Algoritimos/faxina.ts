@@ -9,12 +9,12 @@ const objeto1 = {
 }
 
 const objeto2 = {
-  "gizz": "tuzz",
-  "boo": null,
-  "car": null,
-  "tar": null,
-  "gar": 42,
-  "var": undefined,
+  "A": "test",
+  "B": null,
+  "C": undefined,
+  "D": "",
+  "E": 99,
+  "F": "test",
 }
 
 const faxina = (obj: object) => {

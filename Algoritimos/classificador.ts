@@ -101,9 +101,9 @@ type Group = Array<Person>;
 
 const classfificador = (group: Group) => {
 
-  const getMe = (person: Person) => { return  `${getUserName(person)} [Me]` }
-  const getResponsibleUser = (person: Person) => { return  `${getUserName(person)} [Admin]` }
   const getUserName = (person: Person) => { return person.nome }
+  const getMe = (person: Person) => { return `${getUserName(person)} [Me]` }
+  const getResponsibleUser = (person: Person) => { return `${getUserName(person)} [Admin]` }
 
   const isItMe = (person: Person) => person.souEu;
   const isAdmin = (person: Person) => person.responsavel;

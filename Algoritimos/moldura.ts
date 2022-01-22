@@ -2,33 +2,56 @@
 
 // Ex: (9, 6)
 
-// +-------+ ___  1
-// -       -
-// -       -
-// -       -
-// -       -
-// +-------+ ___  valor do segundo parametro
-// |       |
-// |       |
-// 1      ultimo do primeiro parametro
+//    +-------+ ->  (1)
+//    -       -
+//    -       -
+//    -       -
+//    -       -
+//    +-------+ ->  valor do segundo parametro
+//    |       |
+//    |       |
+//   (1)    ultimo do primeiro parametro
 
 
-// funcato criarHeaderFooter(1paremtetro) {
-      // for(let i = 0; i < parametro ; i++) {
-        // if()
-        //  result.concat
-      // }
-      //  const result = ""
-      // return result
-// }
+const createFrame = (column: number, row:number) => {
 
-// funcao  criar conter(2paremtro)
+  const createHeaderOrFooter = (column: number) => {
+    let result = ""
+  
+    for (let i = 0; i < column; i++) {
+      if(i === 0 || i === column - 1) {
+        result += "+"
+      } else {
+        result += "-"
+      }
+    }
+  
+    console.log(result)
+  }
+  
+  const createBody = (column: number) => {
+    let result = ""
+    
+    for (let i = 0; i < column; i++) {
+      if(i === 0 || i === column - 1) {
+        result += "-"
+      } else {
+        result += " "
+      }
+    }
+    
+    console.log(result)
+  }
 
-//setar header
-//setar content
-//setar footer
 
-// Ex: (1, 3)
-// +
-// -
-// +
+  for (let i = 0; i < row ; i++) {
+    if(i === 0 || i === row -1) {
+      createHeaderOrFooter(column)
+    } else {
+      createBody(column)
+    }
+  }
+}
+
+createFrame(9, 6)
+createFrame(7, 4)
