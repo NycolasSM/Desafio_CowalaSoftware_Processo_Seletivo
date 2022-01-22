@@ -2,38 +2,31 @@
 
 // Ex: ("2021-11-17T20:40:09.503Z", "10d") retorna false; ("2021-12-10T00:00:00.000Z", "180d") retorna true.
 
-// ("2021-11-17T20:40:09.503Z", "10d") false
-// ("2021-12-10T00:00:00.000Z", "180d") true
+const dataExemplo1 = "2021-11-17T20:40:09.503Z"; // 10d return false
+const dataExemplo2 = "2021-12-10T00:00:00.000Z"; // 180d return true
 
 
-// const productData = "2021-12-10T00:00:00.000Z"
+// OBS: como conseguir saber o valor que equivale a um dia em milisegundos
+// atribui duas datas com exatamente um dia de diferença, converti para milesegundos e tirei a diferença
 
-const data = "2021-11-17T20:40:09.503Z";
-const data2 = "2021-12-10T00:00:00.000Z"
-const data3 = "2021-12-11T00:00:00.000Z"
 
-const dataExtendida = "1637181609503"
-const dataProduto = "1637181121251"
-
-const validade = (dateToAnalyze: Date, diasParaValidade: number) => {
+const validade = (dateToAnalyze: string, daysToExpire: number) => {
 
   const todayDate = new Date()
+  const todayDateInMilliseconds = Date.parse(todayDate.toString())
 
-  const millisecondsOfTheDay = 86400000
+  const oneDayInMilliseconds = 86400000
 
   const dateToAnalyzeInMilliseconds =  Date.parse(dateToAnalyze.toString())
 
-  console.log(dateToAnalyzeInMilliseconds)
+  const totalOfDateWithDaysToExpire = dateToAnalyzeInMilliseconds + (oneDayInMilliseconds * daysToExpire)
+
+  if (totalOfDateWithDaysToExpire < todayDateInMilliseconds) {
+    return false
+  } else {
+    return true
+  }
 }
 
-// validade(productData, 18)
-
-const newData = new Date(1637181609503)
-
-console.log(Date.parse(data))
-
-console.log(Date.parse(data3) - Date.parse(data2))
-
-console.log(newData)
-
-// console.log(todayDate)
+console.log(validade(dataExemplo1, 10))
+console.log(validade(dataExemplo2, 180))
