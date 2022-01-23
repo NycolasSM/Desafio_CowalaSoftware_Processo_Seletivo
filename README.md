@@ -1,3 +1,5 @@
+<br>
+<br>
 <h2>Como Testar o FrontEnd</h2>
 <ul>
   <h2>comandos</h2>
@@ -8,7 +10,6 @@
   <p>ira iniciar o projeto usando a porta padrão 3000</p>
 </ul>
 <br>
-<hr>
 <br>
 <h2>Tecnologias Utilizadas</h2>
 <ul>
