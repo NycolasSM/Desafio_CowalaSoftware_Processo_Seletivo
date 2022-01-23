@@ -7,9 +7,9 @@ import RobotoBold from './fonts/Roboto-Bold.ttf';
 
 export default createGlobalStyle`
   @font-face {
-    font-family: 'RobotoBold';
-    src: local('RobotoBold'),
-    url(${RobotoBold}) format('truetype');
+    font-family: 'RobotoThin';
+    src: local('RobotoThin'),
+    url(${RobotoThin}) format('truetype');
   };
 
   @font-face {
@@ -19,9 +19,9 @@ export default createGlobalStyle`
   };
 
   @font-face {
-    font-family: 'RobotoThin';
-    src: local('RobotoThin'),
-    url(${RobotoThin}) format('truetype');
+    font-family: 'RobotoBold';
+    src: local('RobotoBold'),
+    url(${RobotoBold}) format('truetype');
   };
 
   * {
@@ -34,6 +34,5 @@ export default createGlobalStyle`
     background-color: white;
     font-size: 14px;
     color: #333;
-    /* font-family: 'RobotoBold'; */
   };
 `

@@ -23,6 +23,4 @@ export const FieldsFormUser = styled.div`
   input:focus{
     outline: 1px black solid;
   }
-
-  //618px
 `
